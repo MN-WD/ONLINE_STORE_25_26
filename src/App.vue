@@ -9,7 +9,7 @@
   <AppHeader />
   <!-- Main content -->
   <main class="container mx-auto py-8 px-4 flex flex-wrap">
-    <ProductList />
+    <ProductList apiURL="https://6931986c11a8738467cfab36.mockapi.io/" />
     <ShoppingCart />
   </main>
   <AppFooter />
