@@ -1,5 +1,11 @@
 <script setup>
+    import { onMounted } from 'vue';
+    import { cartStore } from '@/stores/cart';
     import ProductCart from './ProductCart.vue';
+
+    onMounted(() => {
+        cartStore.init();
+    });
 </script>
 
 <template>
@@ -8,7 +14,9 @@
         <h2 class="text-xl font-bold mb-4">Votre Panier</h2>
         <div class="cart bg-white rounded-lg shadow animate__animated">
         <ul class="divide-y divide-gray-200 space-y-4 p-6">
-            <ProductCart />
+            <ProductCart 
+            v-for="item in cartStore.cartItems" :key="item.id" :item="item"
+            @deleteOne="cartStore.deleteOneById" />
         </ul>
         <div class="bg-gray-50">
             <div class="p-6">

@@ -1,6 +1,7 @@
 <script setup>
   import { reactive, onMounted } from 'vue';
   import { productsStore } from "@/stores/products.js";
+  import { cartStore } from '@/stores/cart';
   import Product from './Product.vue';
 
   const props = defineProps({
@@ -17,7 +18,7 @@
       <!-- Products Section -->
       <h1 class="text-3xl font-bold mb-4">Nouveaux produits</h1>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <product v-for="product in productsStore.products" :key="product.id" :product="product" />
+        <product v-for="product in productsStore.products" :key="product.id" :product="product" @addProduct="cartStore.addOne" />
       </div>
     </section>
 </template>
