@@ -1,4 +1,5 @@
 <script setup>
+    // Récupération de product dans la balises <product /> de ProductList
     const props = defineProps({
         product: { type: Object, required: true },
     });

@@ -1,4 +1,5 @@
 <script setup>
+    // Récupération de item dans ShoppingCart
     const props = defineProps({
         item: { type: Object, required: true },
     });

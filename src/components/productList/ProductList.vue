@@ -1,13 +1,15 @@
 <script setup>
-  import { reactive, onMounted } from 'vue';
+  import { onMounted } from 'vue';
   import { productsStore } from "@/stores/products.js";
   import { cartStore } from '@/stores/cart';
   import Product from './Product.vue';
 
+  // Récupération apiURL de productsStore
   const props = defineProps({
     apiURL: { type: String, required: true },
   });
 
+  // Lance méthode init du store products et fait appel à l'API
   onMounted(async () => {
     productsStore.init(props.apiURL);
   });
